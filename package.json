@@ -1,0 +1,29 @@
+{
+  "name": "pokeslap-launcher",
+  "version": "0.1.0",
+  "description": "Launcher PokeSlap",
+  "main": "src/main.js",
+  "author": "PokeSlap",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win --publish never",
+    "manifest": "node tools/make-manifest.js"
+  },
+  "dependencies": {
+    "extract-zip": "^2.0.1",
+    "minecraft-launcher-core": "^3.18.2",
+    "msmc": "^5.0.5"
+  },
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "fr.pokeslap.launcher",
+    "productName": "PokeSlap",
+    "directories": { "output": "dist" },
+    "files": ["src/**/*", "lib/**/*", "launcher.config.json", "package.json"],
+    "win": { "target": ["nsis"], "icon": "build/icon.ico" },
+    "nsis": { "oneClick": true, "perMachine": false, "createDesktopShortcut": true }
+  }
+}

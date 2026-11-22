@@ -1,0 +1,8 @@
+{
+  "name": "PokéSlap",
+  "manifestUrl": "https://raw.githubusercontent.com/millauw-off/pokeslap/main/manifest.json",
+  "minecraft": "1.21.1",
+  "fabricLoader": "0.20.1",
+  "javaMajor": 21,
+  "server": { "host": "cobble4mon.xtremcraft.fr", "port": 10001 }
+}

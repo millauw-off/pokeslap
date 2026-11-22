@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self'">
+<title>PokéSlap</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="sky"></div>
+<main>
+  <header>
+    <div class="ball"></div>
+    <h1 id="name">PokéSlap</h1>
+    <p>Serveur Cobblemon MMORPG</p>
+  </header>
+  <section class="card">
+    <div class="tabs">
+      <button id="tab-offline" class="active">Pseudo simple</button>
+      <button id="tab-ms">Compte Microsoft</button>
+    </div>
+    <label id="user-row">Pseudo
+      <input id="username" maxlength="16" placeholder="Ton pseudo en jeu" autocomplete="off">
+    </label>
+    <label>Mémoire du jeu
+      <select id="ram">
+        <option value="4">4 Go</option><option value="6" selected>6 Go (conseillé)</option>
+        <option value="8">8 Go</option><option value="10">10 Go</option>
+      </select>
+    </label>
+    <button id="play" class="play">JOUER</button>
+    <div class="bar"><div id="fill"></div></div>
+    <p id="status">Prêt.</p>
+    <p id="error" class="error"></p>
+    <div class="links"><a href="#" id="folder">Ouvrir le dossier du jeu</a> · <a href="#" id="toggle-log">Journal</a></div>
+    <pre id="log" hidden></pre>
+  </section>
+</main>
+<script src="renderer.js"></script>
+</body>
+</html>

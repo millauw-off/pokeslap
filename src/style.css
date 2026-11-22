@@ -1,0 +1,24 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: "Segoe UI", Arial, sans-serif; color: #f3ecff; background: #1b0f33; height: 100vh; overflow: hidden; }
+.sky { position: fixed; inset: 0; background: linear-gradient(#2a1458, #6d3fc0 70%, #b07ae8); opacity: .9; }
+.sky::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 36%; background: linear-gradient(#2c1760, #170a30); clip-path: polygon(0 60%, 12% 25%, 25% 55%, 40% 10%, 58% 50%, 72% 20%, 88% 55%, 100% 30%, 100% 100%, 0 100%); }
+main { position: relative; display: flex; gap: 32px; align-items: center; justify-content: center; height: 100%; padding: 24px; }
+header { text-align: center; width: 300px; }
+header h1 { margin: 12px 0 4px; font-size: 40px; letter-spacing: 1px; color: #ffd45e; text-shadow: 0 3px 0 #3a1a78; }
+header p { margin: 0; color: #d9c8ff; }
+.ball { width: 120px; height: 120px; margin: 0 auto; border-radius: 50%; border: 6px solid #1b0f33; background: linear-gradient(#ef4d6a 0 46%, #1b0f33 46% 54%, #fff 54%); position: relative; }
+.ball::after { content: ""; position: absolute; left: 50%; top: 50%; width: 34px; height: 34px; margin: -17px; border-radius: 50%; background: #fff; border: 6px solid #1b0f33; }
+.card { width: 400px; background: rgba(27, 15, 51, .88); border: 2px solid #8a5fe0; border-radius: 14px; padding: 20px; }
+.tabs { display: flex; gap: 8px; margin-bottom: 14px; }
+.tabs button { flex: 1; padding: 8px; border: 1px solid #6a45b8; background: #2b1658; color: #cdb8ff; border-radius: 8px; cursor: pointer; }
+.tabs button.active { background: #8a5fe0; color: #fff; border-color: #ffd45e; }
+label { display: block; margin-bottom: 12px; font-size: 13px; color: #d9c8ff; }
+input, select { width: 100%; margin-top: 4px; padding: 9px; border-radius: 8px; border: 1px solid #6a45b8; background: #120a26; color: #fff; font-size: 15px; }
+.play { width: 100%; padding: 13px; margin-top: 4px; border: 0; border-radius: 10px; background: #ffd45e; color: #2a1458; font-size: 20px; font-weight: 700; cursor: pointer; }
+.play:disabled { opacity: .5; cursor: wait; }
+.bar { height: 10px; margin-top: 14px; background: #120a26; border-radius: 6px; overflow: hidden; }
+#fill { height: 100%; width: 0; background: #6be08a; transition: width .2s; }
+#status { margin: 8px 0 0; font-size: 13px; color: #d9c8ff; min-height: 18px; }
+.error { color: #ff8a9a; font-size: 13px; min-height: 18px; margin: 4px 0 0; }
+.links { margin-top: 8px; font-size: 12px; } .links a { color: #b9a0ff; }
+pre { max-height: 120px; overflow: auto; background: #0b0518; padding: 8px; font-size: 11px; color: #bfa8f0; }
