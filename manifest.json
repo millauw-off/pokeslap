@@ -1,0 +1,12 @@
+{
+  "minecraft": "1.21.1",
+  "fabricLoader": "0.20.1",
+  "server": {
+    "host": "cobble4mon.xtremcraft.fr",
+    "port": 10001
+  },
+  "managedDirs": [
+    "mods"
+  ],
+  "files": []
+}
