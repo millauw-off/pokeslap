@@ -8,6 +8,7 @@ const { fetchJson } = require('../lib/util');
 const { syncFiles } = require('../lib/sync');
 const { ensureJava } = require('../lib/java');
 const { ensureFabric } = require('../lib/fabric');
+const { enableResourcePacks } = require('../lib/options');
 
 const GAME_DIR = path.join(app.getPath('appData'), '.pokeslap');
 const SETTINGS = path.join(GAME_DIR, 'launcher-settings.json');
@@ -72,6 +73,8 @@ ipcMain.handle('play', async (_e, opts) => {
 
     status({ text: 'Lecture de la liste des fichiers...', pct: 3 });
     const manifest = await fetchJson(cfg.manifestUrl, true);
+    send('log', 'Liste des fichiers : ' + (manifest.files || []).length + ' fichier(s)');
+    status({ text: 'Liste des fichiers : ' + (manifest.files || []).length + ' fichier(s)', pct: 4 });
     const mc = manifest.minecraft || cfg.minecraft;
     const loader = manifest.fabricLoader || cfg.fabricLoader;
     const server = manifest.server || cfg.server;
@@ -80,6 +83,7 @@ ipcMain.handle('play', async (_e, opts) => {
     status({ text: 'Preparation de Fabric...', pct: 45 });
     const versionId = await ensureFabric(GAME_DIR, mc, loader);
     await syncFiles(manifest, GAME_DIR, status);
+    try { enableResourcePacks(GAME_DIR, manifest.resourcePacks); } catch (e) { send('log', 'options.txt : ' + e.message); }
 
     status({ text: 'Lancement de Minecraft...', pct: 100 });
     const launcher = new Client();

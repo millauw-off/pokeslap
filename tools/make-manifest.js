@@ -58,6 +58,7 @@ const manifest = {
   fabricLoader: cfg.fabricLoader,
   server: cfg.server,
   managedDirs: ['mods'],
+  resourcePacks: all.map((f) => f.path).filter((p) => /^resourcepacks\/[^/]+\.zip$/i.test(p)).map((p) => p.split('/')[1]),
   files: all
 };
 fs.writeFileSync(path.join(__dirname, '..', 'manifest.json'), JSON.stringify(manifest, null, 2));
