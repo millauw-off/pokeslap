@@ -2,6 +2,7 @@ name: Mettre a jour la liste des fichiers
 on:
   workflow_dispatch:
   push:
+    branches: [main]
     paths:
       - 'files/**'
       - 'launcher.config.json'
@@ -13,6 +14,8 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
       - uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -22,4 +25,4 @@ jobs:
           git config user.email "bot@users.noreply.github.com"
           git add manifest.json
           git diff --cached --quiet || git commit -m "Mise a jour de manifest.json"
-          git push
+          git push origin HEAD:main
