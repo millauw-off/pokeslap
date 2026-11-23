@@ -1,6 +1,6 @@
 {
   "name": "pokeslap-launcher",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Launcher PokeSlap",
   "main": "src/main.js",
   "author": "PokeSlap",
@@ -12,7 +12,8 @@
   "dependencies": {
     "extract-zip": "^2.0.1",
     "minecraft-launcher-core": "^3.18.2",
-    "msmc": "^5.0.5"
+    "msmc": "^5.0.5",
+    "electron-updater": "^6.3.9"
   },
   "devDependencies": {
     "electron": "^33.2.0",
@@ -21,9 +22,32 @@
   "build": {
     "appId": "fr.pokeslap.launcher",
     "productName": "PokeSlap",
-    "directories": { "output": "dist" },
-    "files": ["src/**/*", "lib/**/*", "launcher.config.json", "package.json"],
-    "win": { "target": ["nsis"], "icon": "build/icon.ico" },
-    "nsis": { "oneClick": true, "perMachine": false, "createDesktopShortcut": true }
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "lib/**/*",
+      "launcher.config.json",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "createDesktopShortcut": true
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "millauw-off",
+        "repo": "pokeslap"
+      }
+    ]
   }
 }

@@ -36,7 +36,22 @@ function createWindow() {
   win.loadFile(path.join(__dirname, 'index.html'));
 }
 
-app.whenReady().then(createWindow);
+app.whenReady().then(() => {
+  createWindow();
+  if (app.isPackaged) {
+    try {
+      const { autoUpdater } = require('electron-updater');
+      autoUpdater.autoDownload = true;
+      autoUpdater.on('update-available', (i) => status({ text: 'Mise a jour du launcher : telechargement de la version ' + i.version + '...', pct: 0 }));
+      autoUpdater.on('update-downloaded', (i) => {
+        status({ text: 'Mise a jour ' + i.version + ' installee, redemarrage...', pct: 100 });
+        setTimeout(() => autoUpdater.quitAndInstall(), 2500);
+      });
+      autoUpdater.on('error', (e) => send('log', 'Mise a jour : ' + (e && e.message ? e.message : e)));
+      setTimeout(() => autoUpdater.checkForUpdates().catch((e) => send('log', 'Mise a jour : ' + e.message)), 1500);
+    } catch (e) { send('log', 'Mise a jour indisponible : ' + e.message); }
+  }
+});
 app.on('window-all-closed', () => app.quit());
 
 ipcMain.handle('init', () => ({
