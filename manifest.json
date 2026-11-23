@@ -76,6 +76,18 @@
       "sha1": "5e96a2f5b0a26417c7f10f5bdbeaa62ec4ec4cd9"
     },
     {
+      "path": "mods/uilib-9.0.0-fabric.jar",
+      "url": "https://raw.githubusercontent.com/millauw-off/pokeslap/main/files/mods/uilib-9.0.0-fabric.jar",
+      "size": 248791,
+      "sha1": "6cda49f57dc5224726f13315665b840eb5e20e76"
+    },
+    {
+      "path": "mods/yamlconfig-9.0.0-fabric.jar",
+      "url": "https://raw.githubusercontent.com/millauw-off/pokeslap/main/files/mods/yamlconfig-9.0.0-fabric.jar",
+      "size": 572333,
+      "sha1": "67d940d63fe6e911e2e925b0252da2c8ef81cc78"
+    },
+    {
       "path": "mods/Cobblemon-fabric-1.8.4.jar",
       "url": "https://github.com/millauw-off/pokeslap/releases/download/mods/Cobblemon-fabric-1.8.4.jar",
       "size": 139966403,
