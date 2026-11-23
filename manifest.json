@@ -100,6 +100,12 @@
       "sha1": "67d940d63fe6e911e2e925b0252da2c8ef81cc78"
     },
     {
+      "path": "resourcepacks/cobblerpg-pack.zip",
+      "url": "https://raw.githubusercontent.com/millauw-off/pokeslap/main/files/resourcepacks/cobblerpg-pack.zip",
+      "size": 39920,
+      "sha1": "f1ffa911150d072d6ec3e1d71235fe9ee17e77bf"
+    },
+    {
       "path": "mods/Cobblemon-fabric-1.8.4.jar",
       "url": "https://github.com/millauw-off/pokeslap/releases/download/mods/Cobblemon-fabric-1.8.4.jar",
       "size": 139966403,
