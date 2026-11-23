@@ -1,6 +1,6 @@
 {
   "name": "pokeslap-launcher",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Launcher PokeSlap",
   "main": "src/main.js",
   "author": "PokeSlap",

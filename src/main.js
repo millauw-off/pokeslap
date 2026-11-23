@@ -41,6 +41,7 @@ app.on('window-all-closed', () => app.quit());
 
 ipcMain.handle('init', () => ({
   name: cfg.name,
+  version: app.getVersion(),
   server: cfg.server,
   settings: loadSettings()
 }));

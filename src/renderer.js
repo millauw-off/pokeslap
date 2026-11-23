@@ -16,6 +16,7 @@ $('toggle-log').onclick = (e) => { e.preventDefault(); $('log').hidden = !$('log
 window.api.init().then((st) => {
   $('name').textContent = st.name;
   document.title = st.name;
+  $('ver').textContent = 'Version ' + st.version;
   const s = st.settings || {};
   if (s.username) $('username').value = s.username;
   if (s.ram) $('ram').value = String(s.ram);
