@@ -35,12 +35,31 @@ const files = walk(root).map((p) => {
   };
 });
 
+// Fichiers trop gros pour le depot (>100 Mo) : listes dans external.json, hebergees dans une Release GitHub.
+async function externals() {
+  const f = path.join(__dirname, '..', 'external.json');
+  if (!fs.existsSync(f)) return [];
+  const list = JSON.parse(fs.readFileSync(f, 'utf8'));
+  const out = [];
+  for (const e of list) {
+    const res = await fetch(e.url);
+    if (!res.ok) throw new Error('Telechargement impossible (' + res.status + ') : ' + e.url);
+    const buf = Buffer.from(await res.arrayBuffer());
+    out.push({ path: e.path, url: e.url, size: buf.length, sha1: crypto.createHash('sha1').update(buf).digest('hex') });
+  }
+  return out;
+}
+
+(async () => {
+const ext = await externals();
+const all = files.concat(ext);
 const manifest = {
   minecraft: cfg.minecraft,
   fabricLoader: cfg.fabricLoader,
   server: cfg.server,
   managedDirs: ['mods'],
-  files
+  files: all
 };
 fs.writeFileSync(path.join(__dirname, '..', 'manifest.json'), JSON.stringify(manifest, null, 2));
-console.log(files.length + ' fichier(s) dans manifest.json');
+console.log(all.length + ' fichier(s) dans manifest.json (dont ' + ext.length + ' externes)');
+})().catch((e) => { console.error(e.message); process.exit(1); });

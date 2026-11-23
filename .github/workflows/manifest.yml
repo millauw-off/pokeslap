@@ -5,6 +5,7 @@ on:
     paths:
       - 'files/**'
       - 'launcher.config.json'
+      - 'external.json'
 jobs:
   manifest:
     runs-on: ubuntu-latest
