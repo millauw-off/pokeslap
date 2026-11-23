@@ -84,7 +84,15 @@ ipcMain.handle('play', async (_e, opts) => {
     status({ text: 'Preparation de Fabric...', pct: 45 });
     const versionId = await ensureFabric(GAME_DIR, mc, loader);
     await syncFiles(manifest, GAME_DIR, status);
-    try { enableResourcePacks(GAME_DIR, manifest.resourcePacks); } catch (e) { send('log', 'options.txt : ' + e.message); }
+    try {
+      const packs = new Set(manifest.resourcePacks || []);
+      for (const f of manifest.files || []) {
+        const m = /^resourcepacks\/([^/]+\.zip)$/i.exec(f.path);
+        if (m) packs.add(m[1]);
+      }
+      send('log', 'Packs de ressources actives : ' + (Array.from(packs).join(', ') || 'aucun'));
+      enableResourcePacks(GAME_DIR, Array.from(packs));
+    } catch (e) { send('log', 'options.txt : ' + e.message); }
 
     status({ text: 'Lancement de Minecraft...', pct: 100 });
     const launcher = new Client();
