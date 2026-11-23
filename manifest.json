@@ -76,6 +76,12 @@
       "sha1": "5e96a2f5b0a26417c7f10f5bdbeaa62ec4ec4cd9"
     },
     {
+      "path": "mods/itemrestrictions-9.0.0-fabric.jar",
+      "url": "https://raw.githubusercontent.com/millauw-off/pokeslap/main/files/mods/itemrestrictions-9.0.0-fabric.jar",
+      "size": 74348,
+      "sha1": "a84a6be8bc8cbf7456be105e1f5fd931812757d7"
+    },
+    {
       "path": "mods/jobsplus-9.0.2-fabric.jar",
       "url": "https://raw.githubusercontent.com/millauw-off/pokeslap/main/files/mods/jobsplus-9.0.2-fabric.jar",
       "size": 506670,
