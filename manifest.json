@@ -8,6 +8,9 @@
   "managedDirs": [
     "mods"
   ],
+  "resourcePacks": [
+    "cobblerpg-pack.zip"
+  ],
   "files": [
     {
       "path": "mods/AllTheMons-R5.0.jar",
@@ -102,8 +105,8 @@
     {
       "path": "resourcepacks/cobblerpg-pack.zip",
       "url": "https://raw.githubusercontent.com/millauw-off/pokeslap/main/files/resourcepacks/cobblerpg-pack.zip",
-      "size": 39920,
-      "sha1": "f1ffa911150d072d6ec3e1d71235fe9ee17e77bf"
+      "size": 60217,
+      "sha1": "e646922c58eaf0ab4f42468031ef5a7744195e97"
     },
     {
       "path": "mods/Cobblemon-fabric-1.8.4.jar",
