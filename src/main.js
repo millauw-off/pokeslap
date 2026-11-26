@@ -8,7 +8,7 @@ const { fetchJson } = require('../lib/util');
 const { syncFiles } = require('../lib/sync');
 const { ensureJava } = require('../lib/java');
 const { ensureFabric } = require('../lib/fabric');
-const { enableResourcePacks } = require('../lib/options');
+const { enableResourcePacks, setGuiScale } = require('../lib/options');
 
 const GAME_DIR = path.join(app.getPath('appData'), '.pokeslap');
 const SETTINGS = path.join(GAME_DIR, 'launcher-settings.json');
@@ -108,6 +108,7 @@ ipcMain.handle('play', async (_e, opts) => {
       send('log', 'Packs de ressources actives : ' + (Array.from(packs).join(', ') || 'aucun'));
       enableResourcePacks(GAME_DIR, Array.from(packs));
     } catch (e) { send('log', 'options.txt : ' + e.message); }
+    try { setGuiScale(GAME_DIR, 0); } catch (e) { send('log', 'guiScale : ' + e.message); }
 
     status({ text: 'Lancement de Minecraft...', pct: 100 });
     const launcher = new Client();

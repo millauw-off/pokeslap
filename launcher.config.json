@@ -4,5 +4,5 @@
   "minecraft": "1.21.1",
   "fabricLoader": "0.20.1",
   "javaMajor": 21,
-  "server": { "host": "cobble4mon.xtremcraft.fr", "port": 10001 }
+  "server": { "host": "91.197.6.201", "port": 23892 }
 }
